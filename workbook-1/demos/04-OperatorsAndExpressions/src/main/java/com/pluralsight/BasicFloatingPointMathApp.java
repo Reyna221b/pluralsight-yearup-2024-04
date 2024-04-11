@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class BasicFloatingPointMathApp
+public class     BasicFloatingPointMathApp
 {
     public static void main(String[] args)
     {
