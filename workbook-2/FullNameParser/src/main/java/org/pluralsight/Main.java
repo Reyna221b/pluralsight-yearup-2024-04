@@ -18,8 +18,6 @@ public class Main
         String[] fullName = nameInput.split(" ");
 
 
-
-
         if (fullName.length > 2){
             firstName = fullName[0];
             middleName = fullName[1];
