@@ -13,7 +13,6 @@ public class Main
         String middleName;
         String lastName;
         String suffix;
-        String nameFormat;
 
         System.out.println("Please enter your name: \n");
         System.out.print("First name: ");
