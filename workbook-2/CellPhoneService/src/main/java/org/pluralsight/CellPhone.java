@@ -8,9 +8,17 @@ public class CellPhone
     private String phoneNumber;
     private String owner;
 
+    /*public CellPhone(int serialNumber, String model, String carrier, String phoneNumber, String owner)
+    {
+        this.serialNumber = serialNumber;
+        this.model = model;
+        this.carrier = carrier;
+        this.phoneNumber = phoneNumber;
+        this.owner = owner;
+    }*/
+
     public CellPhone()
     {
-
         this.serialNumber = 0;
         this.model = "";
         this.carrier ="";
@@ -62,4 +70,11 @@ public class CellPhone
     {
         this.owner = owner;
     }
+
+    public void dial(String phone)
+    {
+        System.out.printf("\n%s's phone is calling %s\n", getOwner(), phone);
+    }
+
+
 }
