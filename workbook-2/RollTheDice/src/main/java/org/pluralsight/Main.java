@@ -6,12 +6,12 @@ public class Main
     {
         Dice dice = new Dice();
         int roll1, roll2;
-        int counter2 = 0;
-        int counter4 = 0 ;
-        int counter6 = 0;
-        int counter7 = 0;
+        int twoCounter = 0;
+        int fourCounter = 0 ;
+        int sixCounter = 0;
+        int sevenCounter = 0;
 
-        for(int i = 1; i <= 100; i++){
+        for(int i = 1; i <= 20; i++){
 
             roll1 = dice.roll();
             roll2 = dice.roll();
@@ -19,24 +19,23 @@ public class Main
             System.out.printf("roll %d: %d - %d  Sum: %d\n", i, roll1, roll2, sum );
 
             switch(sum){
-
                 case(2):
-                    counter2++;
+                    twoCounter++;
                     continue;
                 case(4):
-                    counter4++;
+                    fourCounter++;
                     continue;
                 case(6):
-                    counter6++;
+                    sixCounter++;
                     continue;
                 case(7):
-                    counter7++;
+                    sevenCounter++;
                     continue;
             }
 
         }
         System.out.printf("2 counter: %d\n4 counter: %d\n6 counter: %d\n7 counter: %d",
-                counter2,counter4,counter6,counter7);
+                twoCounter, fourCounter, sixCounter, sevenCounter);
     }
 
 }
