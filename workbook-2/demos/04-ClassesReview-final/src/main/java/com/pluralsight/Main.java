@@ -32,7 +32,6 @@ public class Main
         System.out.println("I have a " + house1.getOutsideColor() + " house");
 
         house1.paintOutside("Yellow");
-        house1.setOutsideColor("Blue");
 
 
         System.out.println("Woohoo");
