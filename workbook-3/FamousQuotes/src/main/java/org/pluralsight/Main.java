@@ -36,12 +36,13 @@ public class Main
 
 
         while (userChoice){
-            try{
-                System.out.println("would you like to do:");
-                System.out.print("-".repeat(25)+ "\n1 - Select a quote\n2 - Random quote\n3 - Exit\n");
-                System.out.print("Enter your choice: ");
-                int choice = Integer.parseInt(userInput.nextLine());
 
+            System.out.println("would you like to do:");
+            System.out.print("-".repeat(25)+ "\n1 - Select a quote\n2 - Random quote\n3 - Exit\n");
+            System.out.print("Enter your choice: ");
+
+            try{
+                int choice = Integer.parseInt(userInput.nextLine());
                 if(choice == 1) {
                     System.out.print("\nPlease select a number between 1-10: ");
                     int input = Integer.parseInt(userInput.nextLine());
@@ -50,7 +51,7 @@ public class Main
                 }
                 else if (choice == 2)
                 {
-                    int random = (int) (Math.random() * 10);
+                    int random = (int) (Math.random() * 10 + 1);
                     System.out.println("\nQuote: " + quotes[random - 1]);
                     System.out.println();
                 }
