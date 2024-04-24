@@ -45,11 +45,11 @@ public class Main
     }
     public static void displayEmployee()
     {
+        System.out.println("Employee ID\t\tName\t\t\t\tGross Pay");
+        System.out.println("-".repeat(55));
         for (Employee employee : employees) {
-            System.out.println("Employee ID\t\tName\t\t\t\tGross Pay");
-            System.out.println("-".repeat(55));
             System.out.printf("%5s\t\t\t%-19s $ %.2f", employee.getEmployeeId(), employee.getName(), employee.getGrossPay());
-            System.out.println("\n");
+            System.out.println();
         }
     }
 }
