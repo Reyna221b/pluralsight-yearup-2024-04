@@ -1,7 +1,9 @@
 package org.pluralsight;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,10 +34,12 @@ public class Main
                 String name = columns[1];
                 double hours = Double.parseDouble(columns[2]);
                 double pay = Double.parseDouble(columns[3]);
+                writeToFile(columns);
 
                 Employee employee = new Employee(pay,hours,name,id);
 
                 employees.add(employee);
+
             }
         }
         catch(IOException ex)
@@ -52,4 +56,25 @@ public class Main
             System.out.println();
         }
     }
-}
+
+    public static void writeToFile(String[] employeeFile)
+    {
+        File file = new File("files/payroll-2024.txt");
+
+        try(FileWriter fileWriter = new FileWriter(file, true);
+            PrintWriter writer = new PrintWriter(fileWriter);
+        )
+        {
+            writer.print("id|name|gross pay");
+            writer.println();
+            for(String line : employeeFile)
+            {
+                writer.print(line + "|");
+            }
+        }
+        catch(IOException ex)
+        {
+
+        }
+    }
+}  

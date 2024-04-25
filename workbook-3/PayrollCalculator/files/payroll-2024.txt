@@ -1,0 +1,10 @@
+
+id|name|gross pay
+10|Dana Wyatt|52.5|12.50|id|name|gross pay
+20|Ezra Aiden|17|16.75|id|name|gross pay
+30|Brittany Thibbs|40|16.50|id|name|gross pay
+40|Zephaniah Hughes|2|10.0|id|name|gross pay
+50|Caylee Callahan|35|15.50|id|name|gross pay
+60|Zane Stephens|45|13.50|id|name|gross pay
+70|Maverick Cummings|25.5|16.50|id|name|gross pay
+80|Kamari Todd|32|14.50|
