@@ -54,7 +54,6 @@ public class Logger
 
         }
 
-
     }
 
     public ArrayList<LogEntry> readLog()
