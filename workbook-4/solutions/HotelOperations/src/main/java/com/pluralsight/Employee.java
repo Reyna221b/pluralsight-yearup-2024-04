@@ -3,6 +3,7 @@ package com.pluralsight;
 public class Employee
 {
     private final double OVERTIME_RATE = 1.5;
+    private final int REGULAR_HOURS = 40;
 
     private int employeeId;
     private String name;
@@ -70,6 +71,12 @@ public class Employee
     }
 
     // derived
+
+    public boolean isOvertime()
+    {
+        return hoursWorked > REGULAR_HOURS;
+    }
+
     public double getRegularPay()
     {
         return getRegularHours() * payRate;
@@ -87,22 +94,27 @@ public class Employee
 
     public double getRegularHours()
     {
-        if(hoursWorked >= 40){
-            return 40;
-        }
-        else {
-            return hoursWorked;
-        }
+//        if(isOvertime()){
+//            return 40;
+//        }
+//        else {
+//            return hoursWorked;
+//        }
+
+        return isOvertime()
+                ? REGULAR_HOURS
+                : hoursWorked;
     }
 
     public double getOvertimeHours()
     {
-        if(hoursWorked <= 40){
-            return 0;
-        }
-        else {
-            return hoursWorked - 40;
-        }
+//        if(!isOvertime()){
+//            return 0;
+//        }
+//        else {
+//            return hoursWorked - 40;
+//        }
+        return !isOvertime() ? 0 : hoursWorked - REGULAR_HOURS;
     }
 
 }
