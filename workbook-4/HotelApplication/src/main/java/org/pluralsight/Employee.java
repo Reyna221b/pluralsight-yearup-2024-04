@@ -1,5 +1,7 @@
 package org.pluralsight;
 
+import java.time.LocalDateTime;
+
 public class Employee
 {
     private final double REGULAR_HOURS = 40;
@@ -126,5 +128,16 @@ public class Employee
         }
 
     }
+    public void punchTimeCard(LocalDateTime date)
+    {
+
+        int hours = date.getHour();
+        int min = date.getMinute();
+        int seconds = date.getSecond();
+
+        double time = hours + (min/60.0) + (seconds/3600.0);
+        punchTimeCard(time);
+    }
+
 
 }

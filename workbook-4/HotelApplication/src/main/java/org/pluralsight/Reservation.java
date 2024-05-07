@@ -5,6 +5,10 @@ public class Reservation
     private String roomType;
     private int numberOfNights;
     private boolean isWeekend;
+    private double price = 0;
+    private double charge = .10;
+    private double kingPrice = 139.00;
+    private double queenPrice = 124.00;
 
     public Reservation(String roomType, boolean isWeekend, int numberOfNights)
     {
@@ -46,10 +50,6 @@ public class Reservation
 
     public double getPrice()
     {
-        double price = 0;
-        double charge = .10;
-        double kingPrice = 139.00;
-        double queenPrice = 124.00;
 
         if(getRoomType().equalsIgnoreCase("king")){
             if(isWeekend()){
