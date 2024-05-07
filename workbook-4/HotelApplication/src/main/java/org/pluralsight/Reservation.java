@@ -43,21 +43,22 @@ public class Reservation
         this.roomType = roomType;
     }
 
+
     public double getPrice()
     {
         double price = 0;
-        double upcharge = .10;
+        double charge = .10;
         double kingPrice = 139.00;
         double queenPrice = 124.00;
 
         if(getRoomType().equalsIgnoreCase("king")){
             if(isWeekend()){
-                price =  kingPrice * upcharge;
+                price =  kingPrice * charge;
             }
             price = kingPrice;
         } else if (getRoomType().equalsIgnoreCase("queen")) {
             if(isWeekend()){
-                price = queenPrice * upcharge;
+                price = queenPrice * charge;
             }
             price = queenPrice;
 

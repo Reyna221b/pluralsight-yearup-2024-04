@@ -2,11 +2,16 @@ package org.pluralsight;
 
 public class Employee
 {
+    private final double REGULAR_HOURS = 40;
+    private final double OVERTIME_RATE =1.5;
+
     private int employeeId;
     private String name;
     private String department;
     private double payRate;
     private double hoursWorked;
+    private double shiftStartTime;
+    private boolean isPunchedIn;
 
     public Employee(int employeeId, double hoursWorked, double payRate, String department, String name)
     {
@@ -67,32 +72,59 @@ public class Employee
         this.hoursWorked = hoursWorked;
     }
 
-    public double getOvertimeHours(){
-        double overtime = 0;
-        if(getHoursWorked() > 40){
-            overtime = getHoursWorked() - 40;
-
-        }
-        return overtime;
+    public boolean isOverTimed()
+    {
+        return hoursWorked > REGULAR_HOURS;
     }
 
-    public double getRegularHours(){
-        double regular = 0;
-        if(getHoursWorked() <= 40) {
-            regular = getHoursWorked() * getPayRate();
+    public double getOvertimeHours()
+    {
+
+        return !isOverTimed() ? 0 : hoursWorked - REGULAR_HOURS;
+    }
+
+    public double getOvertimeHoursPay()
+    {
+
+        return getOvertimeHours() * getPayRate() * OVERTIME_RATE;
+    }
+
+    public double getRegularHours()
+    {
+
+        return isOverTimed() ?  REGULAR_HOURS : hoursWorked;
+    }
+
+    public double getRegularHoursPay()
+    {
+      return getRegularHours() * payRate;
+    }
+
+    public double getTotalPay()
+    {
+        return getOvertimeHours()+ getRegularHours();
+    }
+
+    public void punchIn(double time) {
+        shiftStartTime = time;
+    }
+    public void punchOut(double time) {
+
+        hoursWorked = time - shiftStartTime;
+    }
+
+    public void punchTimeCard(double time)
+    {
+        if(!isPunchedIn){
+            shiftStartTime = time;
+            isPunchedIn = true;
         }
         else {
-            regular = 40 * getPayRate();
+
+            hoursWorked = time - shiftStartTime;
+            isPunchedIn = false;
         }
 
-      return regular;
     }
 
-    public double getTotalPay(){
-        if(getOvertimeHours() != 0)
-        {
-            
-        }
-        return getOvertimeHours() + getRegularHours();
-    }
 }

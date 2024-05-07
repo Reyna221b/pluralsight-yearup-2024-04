@@ -56,6 +56,27 @@ public class Room
     }
     public boolean isAvailable()
     {
-        return !isOccupied;
+        return !isOccupied() && !isDirty();
     }
+    public void checkIn ()
+    {
+        if(isAvailable()){
+            isOccupied = true;
+            isDirty = true;
+        }
+    }
+
+    public void chekOut()
+    {
+        isOccupied = false;
+        cleanRoom();
+    }
+
+    public void cleanRoom()
+    {
+        if(isDirty && !isOccupied){
+            isDirty = false;
+        }
+    }
+
 }
