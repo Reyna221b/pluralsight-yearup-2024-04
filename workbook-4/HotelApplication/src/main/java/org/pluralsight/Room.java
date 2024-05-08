@@ -54,6 +54,8 @@ public class Room
     {
         this.price = price;
     }
+
+
     public boolean isAvailable()
     {
         return !isOccupied() && !isDirty();
@@ -66,7 +68,7 @@ public class Room
         }
     }
 
-    public void chekOut()
+    public void checkOut()
     {
         isOccupied = false;
         cleanRoom();

@@ -123,7 +123,7 @@ public class Employee
         }
         else {
 
-            hoursWorked = time - shiftStartTime;
+            hoursWorked += time - shiftStartTime;
             isPunchedIn = false;
         }
 
@@ -132,8 +132,8 @@ public class Employee
     {
 
         int hours = date.getHour();
-        int min = date.getMinute();
-        int seconds = date.getSecond();
+        double min = date.getMinute();
+        double seconds = date.getSecond();
 
         double time = hours + (min/60.0) + (seconds/3600.0);
         punchTimeCard(time);
