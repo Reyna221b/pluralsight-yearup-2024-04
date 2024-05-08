@@ -48,7 +48,7 @@ public class Main
                     lastName = userInput.nextLine().strip();
                     System.out.print("Enter the first name: ");
                     firstName = userInput.nextLine().strip();
-                    searchResults = history.searchForGuest(lastName, firstName,null, null);
+                    searchResults = history.searchForGuest(lastName, firstName);
                     printReservations(searchResults);
                     break;
                 case 5:
@@ -57,7 +57,7 @@ public class Main
                     userInput.nextLine();
                     System.out.print("Enter the date: ");
                     date = LocalDate.parse(userInput.nextLine().strip());
-                    searchResults = history.searchForGuest(null, null, date, roomNumber);
+                    searchResults = history.searchForGuest(roomNumber, date);
                     printReservations(searchResults);
                     break;
                 case 0:

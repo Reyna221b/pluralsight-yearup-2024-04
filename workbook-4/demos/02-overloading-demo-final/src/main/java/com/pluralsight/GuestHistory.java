@@ -63,41 +63,42 @@ public class GuestHistory
         return reservations;
     }
 
+    // search by room number
     public ArrayList<Reservation> searchForGuest(int roomNumber)
     {
         return searchForGuest(null, null, null, roomNumber);
     }
 
+    // search by reservation date
     public ArrayList<Reservation> searchForGuest(LocalDate reservationDate)
     {
         return searchForGuest(null, null, reservationDate, null);
-//        return (ArrayList<Reservation>) reservations.stream()
-//                                                    .filter(res -> res.getReservationDate().equals(reservationDate))
-//                                                    .collect(Collectors.toList());
+
     }
 
+    // search by room and reservation date
+    public ArrayList<Reservation> searchForGuest(int roomNumber, LocalDate reservationDate)
+    {
+        return searchForGuest(null, null, reservationDate, roomNumber);
+
+    }
+
+    // search by last name
     public ArrayList<Reservation> searchForGuest(String lastName)
     {
-        ArrayList<Reservation> filtered =  (ArrayList<Reservation>) reservations.stream()
-                                                                                .filter(reservation -> reservation.getLastName().equalsIgnoreCase(lastName))
-                                                                                .collect(Collectors.toList());
+        return searchForGuest(lastName, null, null, null);
 
-        ArrayList<Reservation> filteredReservations = new ArrayList<>();
+    }
 
-        for(Reservation reservation : reservations)
-        {
-            if(reservation.getLastName().equals(lastName))
-            {
-                filteredReservations.add(reservation);
-            }
-        }
-
-        return filteredReservations;
-
+    // search by last and first name
+    public ArrayList<Reservation> searchForGuest(String lastName, String firstName)
+    {
+        return searchForGuest(lastName, firstName, null, null);
     }
 
     public ArrayList<Reservation> searchForGuest(String lastName, String firstName, LocalDate reservationDate, Integer roomNumber)
     {
+        // using streams to filter
         ArrayList<Reservation> filtered =  (ArrayList<Reservation>) reservations.stream()
                                                                                 .filter(r -> lastName == null || r.getLastName().equalsIgnoreCase(lastName))
                                                                                 .filter(r -> firstName == null || r.getLastName().equalsIgnoreCase(firstName))
@@ -106,12 +107,19 @@ public class GuestHistory
                                                                                 .collect(Collectors.toList());
 
         return filtered;
-//
+
+
+
+//        // traditional loop
 //        ArrayList<Reservation> filteredReservations = new ArrayList<>();
 //
 //        for(Reservation reservation : reservations)
 //        {
-//            if(reservation.getLastName().equals(lastName))
+//            if ( (lastName == null || reservation.getLastName().equals(lastName))
+//                && (firstName == null || reservation.getFirstName().equals(firstName))
+//                && (reservationDate == null || reservation.getReservationDate().equals(reservationDate))
+//                && (roomNumber == null || reservation.getRoom().getRoomNumber() == roomNumber)
+//            )
 //            {
 //                filteredReservations.add(reservation);
 //            }
