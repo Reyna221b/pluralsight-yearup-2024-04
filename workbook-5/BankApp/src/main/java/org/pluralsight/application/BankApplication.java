@@ -59,7 +59,8 @@ public class BankApplication
 
     public void withdraw()
     {
-        BankAccount account = getBankAccount();
+        int accountNumber = UserInterface.getAccountNumber();
+        BankAccount account = searchBankAccount(accountNumber);
 
         double amount = UserInterface.getWithdrawalAmount();
         boolean canWithdraw = account.canWithdraw(amount);
@@ -77,7 +78,8 @@ public class BankApplication
 
     public void deposit()
     {
-        BankAccount account = getBankAccount();
+        int accountNumber = UserInterface.getAccountNumber();
+        BankAccount account = searchBankAccount(accountNumber);
 
         double amount = UserInterface.getDepositAmount();
         account.deposit(amount);
@@ -87,24 +89,25 @@ public class BankApplication
 
     public void transfer()
     {
+        int accountNumber = UserInterface.getAccountNumber();
         UserInterface.displayMessage("Transfer From Account");
-        BankAccount transfeFromAcc = getBankAccount();
+        BankAccount transferFromAcc = searchBankAccount(accountNumber);
         double amount = UserInterface.getTransferAmount();
         UserInterface.displayMessage("Transfer To Account");
-        BankAccount transferToAcc = getBankAccount();
-        transfeFromAcc.transfer(transferToAcc,amount);
+        int accountNumber2 = UserInterface.getAccountNumber();
+        BankAccount transferToAcc = searchBankAccount(accountNumber2);
+        transferFromAcc.transfer(transferToAcc,amount);
         UserInterface.displayMessage("Transfer of "+ amount + " was successful.");
 
     }
-    
 
-    private BankAccount getBankAccount()
+
+    private BankAccount searchBankAccount(int accountNumber)
     {
-        int accountNumber = UserInterface.getAccountNumber();
-        BankAccount account = bankAccounts.stream()
+
+        return bankAccounts.stream()
                 .filter(acct -> acct.getAccountNumber() == accountNumber)
                 .findFirst()
                 .get();
-        return account;
     }
 }
