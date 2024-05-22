@@ -35,12 +35,12 @@ public class Rectangle extends Shape
     @Override
     public double getArea()
     {
-        return 0.0;
+        return width * height;
     }
 
     @Override
     public String toString()
     {
-        return String.format("%s (%d x %d): %f", getName(), width, height, getArea());
+        return String.format("%s (%d x %d): %.2f", getName(), width, height, getArea());
     }
 }

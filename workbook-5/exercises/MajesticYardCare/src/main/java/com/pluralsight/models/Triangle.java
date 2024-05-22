@@ -25,12 +25,12 @@ public class Triangle extends Shape
     @Override
     public double getArea()
     {
-        return 0;
+        return (base * height)/2.00;
     }
 
     @Override
     public String toString()
     {
-        return String.format("%s (base: %d, height: %d): %f", getName(), base, height, getArea());
+        return String.format("%s (base: %d, height: %d): %.2f", getName(), base, height, getArea());
     }
 }

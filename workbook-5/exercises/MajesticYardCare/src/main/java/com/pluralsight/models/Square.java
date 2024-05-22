@@ -10,6 +10,7 @@ public class Square extends Rectangle
     @Override
     public double getArea()
     {
-        return 0.0;
+        double sideLength = getWidth();
+        return sideLength * sideLength ;
     }
 }

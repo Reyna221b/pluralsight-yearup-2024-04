@@ -13,12 +13,12 @@ public class Circle extends Shape
     @Override
     public double getArea()
     {
-        return 0.0;
+        return Math.PI * (Math.pow(radius,2));
     }
 
     @Override
     public String toString()
     {
-        return String.format("%s (radius: %d): %f", getName(), radius, getArea());
+        return String.format("%s (radius: %d): %.2f", getName(), radius, getArea());
     }
 }
