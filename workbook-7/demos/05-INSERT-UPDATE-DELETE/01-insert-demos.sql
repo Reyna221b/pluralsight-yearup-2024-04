@@ -5,6 +5,7 @@
     UPDATE - modify a record
     DELETE - deleting a record
     SELECT - retrieve records 
+
 */
 
 USE world;
