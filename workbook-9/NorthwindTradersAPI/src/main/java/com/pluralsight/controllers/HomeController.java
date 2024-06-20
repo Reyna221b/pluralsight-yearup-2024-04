@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.controllers;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
