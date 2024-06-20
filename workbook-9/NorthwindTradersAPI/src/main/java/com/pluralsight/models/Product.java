@@ -14,6 +14,7 @@ public class Product
         this.categoryId = categoryId;
         this.unitPrice = unitPrice;
     }
+    public Product(){}
 
     public int getProductId()
     {

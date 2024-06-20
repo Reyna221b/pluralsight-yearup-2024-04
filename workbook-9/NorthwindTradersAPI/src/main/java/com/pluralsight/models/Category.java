@@ -11,6 +11,8 @@ public class Category
         this.categoryName = categoryName;
     }
 
+    public Category(){}
+
     public int getCategoryID()
     {
         return categoryID;
